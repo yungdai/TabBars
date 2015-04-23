@@ -20,22 +20,23 @@
     // create an instance of the FavouritesViewController
     FavouritesViewController *favouritesViewController = [[FavouritesViewController alloc]init];
     
-    // create an instance of the naviation controller
+    // create an instance of the naviation controller for the feedViewController
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:feedViewController];
+    // create an instance of the naviation controller for the favouritesViewController
+    UINavigationController *favouritesNavController = [[UINavigationController alloc]initWithRootViewController:favouritesViewController];
     
     // create a tab bar to the rootViewController
     // instantiate the tab bar object
-    // UITabBarController *tabBarController = [[UITabBarController alloc]init];
+    UITabBarController *tabBarController = [[UITabBarController alloc]init];
     // create a new window
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    self.window.rootViewController = navController;
-    
-    // allow keypresses for the window
-    [self.window makeKeyAndVisible];
-
+    self.window.rootViewController = tabBarController;
     
     // create and set the tab bar items passed it into an arry and of setViewControllers
-    //[tabBarController setViewControllers:@[feedViewController, favouritesViewController]];
+    // passed in the navController because you want it navigate when you press the button.
+    [tabBarController setViewControllers:@[navController, favouritesNavController]];
+    // allow keypresses for the window
+    [self.window makeKeyAndVisible];
 
     return YES;
 }
