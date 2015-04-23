@@ -1,11 +1,3 @@
-//
-//  AppDelegate.m
-//  TabBars
-//
-//  Created by Yung Dai on 2015-04-23.
-//  Copyright (c) 2015 Yung Dai. All rights reserved.
-//
-
 #import "AppDelegate.h"
 #import "FeedViewController.h"
 #import "FavouritesViewController.h"
@@ -27,20 +19,23 @@
     
     // create an instance of the FavouritesViewController
     FavouritesViewController *favouritesViewController = [[FavouritesViewController alloc]init];
-
+    
+    // create an instance of the naviation controller
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:feedViewController];
+    
     // create a tab bar to the rootViewController
     // instantiate the tab bar object
-    UITabBarController *tabBarController = [[UITabBarController alloc]init];
+    // UITabBarController *tabBarController = [[UITabBarController alloc]init];
     // create a new window
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    self.window.rootViewController = tabBarController;
+    self.window.rootViewController = navController;
     
     // allow keypresses for the window
     [self.window makeKeyAndVisible];
 
     
     // create and set the tab bar items passed it into an arry and of setViewControllers
-    [tabBarController setViewControllers:@[feedViewController, favouritesViewController]];
+    //[tabBarController setViewControllers:@[feedViewController, favouritesViewController]];
 
     return YES;
 }

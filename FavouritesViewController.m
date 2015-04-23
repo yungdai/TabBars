@@ -18,7 +18,7 @@
 - (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Feed";
+        self.title = @"Favourites";
         self.tabBarItem.image = [UIImage imageNamed:@"egg"];
     }
     return self;

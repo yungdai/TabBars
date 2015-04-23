@@ -1,12 +1,6 @@
-//
-//  FeedViewController.m
-//  TabBars
-//
-//  Created by Yung Dai on 2015-04-23.
-//  Copyright (c) 2015 Yung Dai. All rights reserved.
-//
 
 #import "FeedViewController.h"
+#import "FavouritesViewController.h"
 
 @interface FeedViewController ()
 
@@ -29,6 +23,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor blueColor];
+    // create a button
+    UIButton *favouriteButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    favouriteButton.frame = CGRectMake(60, 100, 200, 44);
+    favouriteButton.backgroundColor = [UIColor yellowColor];
+    [favouriteButton setTitle:@"View Favourites" forState:UIControlStateNormal];
+    [self.view addSubview:favouriteButton];
+    
+    // when you press the favourites button it will fire the showFavourites method to push a new view controller
+    [favouriteButton addTarget:self action:@selector(showFavourites:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)showFavourites:(UIButton *)sender {
+    FavouritesViewController *favouritesViewController = [[FavouritesViewController alloc]init];
+    // once the button is pressed we want to push a new View Controller
+    [self.navigationController pushViewController:favouritesViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
