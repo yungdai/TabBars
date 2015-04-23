@@ -23,14 +23,11 @@
     // Override point for customization after application launch
     // create an instance of the FeedViewController
     FeedViewController *feedViewController = [[FeedViewController alloc]init];
-    feedViewController.title = @"Feed";
-    feedViewController.tabBarItem.image = [UIImage imageNamed:@"egg"];
     
     
     // create an instance of the FavouritesViewController
     FavouritesViewController *favouritesViewController = [[FavouritesViewController alloc]init];
-    favouritesViewController.title = @"Favourites";
-    favouritesViewController.tabBarItem.image = [UIImage imageNamed:@"egg"];
+
     // create a tab bar to the rootViewController
     // instantiate the tab bar object
     UITabBarController *tabBarController = [[UITabBarController alloc]init];
