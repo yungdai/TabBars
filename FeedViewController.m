@@ -29,7 +29,15 @@
     favouriteButton.backgroundColor = [UIColor yellowColor];
     [favouriteButton setTitle:@"View Favourites" forState:UIControlStateNormal];
     [self.view addSubview:favouriteButton];
-    [favouriteButton addConstraint:[NSLayoutConstraint constraintWithItem:favouriteButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:favouriteButton attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
+    
+    
+    // adding constraints to the button to put it in the center of the window
+    // ensure that the auto resizing mask is set to no
+    [favouriteButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    // set the self.view (the actual window) as the first thing to constrain the button to
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:favouriteButton attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:favouriteButton attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0]];
     
     [favouriteButton addTarget:self action:@selector(showFavourites:) forControlEvents:UIControlEventTouchUpInside];
     
